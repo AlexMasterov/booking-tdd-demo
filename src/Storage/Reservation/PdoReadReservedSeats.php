@@ -22,12 +22,12 @@ final class PdoReadReservedSeats implements ReadReservedSeats
         $maxDateTime = $this->acceptableDateTime($dateTime);
 
         $query = \sprintf(
-            'SELECT SUM(quantity) as total FROM %s WHERE date <= "?"',
+            'SELECT SUM(quantity) as total FROM %s WHERE date <= :maxdate',
             Table::RESERVATIONS
         );
 
         $stmt = $this->pdo->prepare($query);
-        $stmt->bindColumn(1, $maxDateTime);
+        $stmt->bindValue(':maxdate', $maxDateTime, PDO::PARAM_STR);
         $stmt->execute();
 
         $found = (int) $stmt->fetchColumn();
