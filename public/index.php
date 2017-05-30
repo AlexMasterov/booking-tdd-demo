@@ -40,7 +40,7 @@ $successHandler = function (EitherWay\Route $route) use ($resolver): ResponseInt
     return $response;
 };
 
-$operator = $resolver(OperatorInterface::class);
+$operator = ($resolver)(OperatorInterface::class);
 $response = $operator('EitherWay\dispatch')()->either($errorHandler, $successHandler);
 
 Http\Response\send($response);

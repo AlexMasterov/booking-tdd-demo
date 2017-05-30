@@ -26,9 +26,9 @@
   },
   "require": {
     "php": "7.1 - 7.2",
+    "http-interop/http-factory-diactoros": "^0.3",
     "http-interop/response-sender": "^1.0",
     "josegonzalez/dotenv": "^3.0",
-    "nyholm/psr7": "^0.2",
     "rdlowrey/auryn": "^1.4",
     "shadowhand/cairon": "^0.1",
     "shadowhand/either-way": "^1.0"

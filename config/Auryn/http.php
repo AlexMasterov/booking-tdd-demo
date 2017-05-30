@@ -1,14 +1,14 @@
 <?php
 
 use Auryn\Injector;
+use Http\Factory\Diactoros\ResponseFactory;
+use Http\Factory\Diactoros\StreamFactory;
 use Interop\Http\Factory\ResponseFactoryInterface;
 use Interop\Http\Factory\ServerRequestFactoryInterface;
 use Interop\Http\Factory\StreamFactoryInterface;
-use Nyholm\Psr7\Factory\MessageFactory as ResponseFactory;
-use Nyholm\Psr7\Factory\ServerRequestFactory;
-use Nyholm\Psr7\Factory\StreamFactory;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Zend\Diactoros\ServerRequestFactory;
 
 return function (Injector $injector): void {
     $injector->share(ResponseFactoryInterface::class);
@@ -21,9 +21,10 @@ return function (Injector $injector): void {
 
     $injector->share(ServerRequestInterface::class);
 
-    $injector->delegate(ServerRequestInterface::class, static function (ServerRequestFactoryInterface $factory) {
-        return $factory->createServerRequestFromGlobals();
-    });
+    $injector->delegate(
+        ServerRequestInterface::class,
+        [ServerRequestFactory::class, 'fromGlobals']
+    );
 
     $injector->delegate(ResponseInterface::class, static function (ResponseFactoryInterface $factory) {
         return $factory->createResponse();

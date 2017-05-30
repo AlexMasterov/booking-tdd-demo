@@ -11,7 +11,8 @@ final class ReservationRenditionInput
 {
     public function __invoke(ServerRequestInterface $request): ReservationRendition
     {
-        $fromBody = $this->getValueFromBody($request);
+        $parsedBody = $this->parseBody($request);
+        $fromBody = $this->getValueFromBody($parsedBody);
 
         return new ReservationRendition(
             $fromBody('date', 'Not a date'),
@@ -21,12 +22,23 @@ final class ReservationRenditionInput
         );
     }
 
-    private function getValueFromBody(ServerRequestInterface $request): Closure
+    private function parseBody(ServerRequestInterface $request): array
     {
-        $parsedBody = $request->getParsedBody();
+        $parts = \explode(';', $request->getHeaderLine('Content-Type'));
+        $type = \strtolower(\trim(\array_shift($parts)));
 
-        return function ($key, $default = null) use ($parsedBody) {
-            return $parsedBody[$key] ?? $parsedBody[$key] ?? $default;
+        if ('application/json' === $type) {
+            $body = (string) $request->getBody();
+            return \json_decode($body, true);
+        }
+
+        return $request->getParsedBody();
+    }
+
+    private function getValueFromBody(array $body): Closure
+    {
+        return function ($key, $default = null) use ($body) {
+            return $body[$key] ?? $body[$key] ?? $default;
         };
     }
 }
