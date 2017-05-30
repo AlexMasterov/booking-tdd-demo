@@ -9,7 +9,6 @@ use function FastRoute\cachedDispatcher;
 return function (Injector $injector): void {
     $injector->delegate(Dispatcher::class, function () {
         return cachedDispatcher(function (RouteCollector $r) {
-            $r->get('/', Booking\Controller\ReservationController::class);
             $r->post('/reservations', Booking\Controller\ReservationController::class);
         }, [
             'cacheFile' => getenv('ROUTE_CACHE_FILE'),

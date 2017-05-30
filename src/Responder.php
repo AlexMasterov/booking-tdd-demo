@@ -18,16 +18,31 @@ final class Responder
         ResponseInterface $response,
         Payload $payload
     ): ResponseInterface {
-        $body = \json_encode($payload->data);
-        $stream = $this->streamFactory->createStream($body);
+        if ($this->hasData($payload)) {
+            $response = $this->format($response, $payload);
+        }
 
         $response = $response
-            ->withBody($stream)
             ->withStatus($payload->status)
-            ->withHeader('Content-Type', 'application/json')
-            ;
+            ->withHeader('Content-Type', 'application/json');
 
         return $response;
+    }
+
+    public function format(
+        ResponseInterface $response,
+        Payload $payload
+    ): ResponseInterface {
+        $content = \json_encode($payload->data);
+        $stream = $this->streamFactory->createStream($content);
+
+        return $response->withBody($stream);
+    }
+
+    private function hasData(Payload $payload): bool
+    {
+        // empty() still does not work correctly with magic __get
+        return false === empty($data = $payload->data);
     }
 
     /**
