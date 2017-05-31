@@ -19,16 +19,16 @@ trait CanReservationFailure
 
     protected function failure(Throwable $throwable): Payload
     {
-        $message = $throwable->getMessage();
+        $data['message'] = $throwable->getMessage();
 
         if ($throwable instanceof ReservationValidatorException) {
-            return $this->badRequest(compact('message'));
+            return $this->badRequest($data);
         }
 
         if ($throwable instanceof TryCapacityCheckException) {
-            return $this->forbidden(compact('message'));
+            return $this->forbidden($data);
         }
 
-        return $this->internalServerError(compact('message'));
+        return $this->internalServerError($data);
     }
 }
