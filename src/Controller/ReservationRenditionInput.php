@@ -38,7 +38,7 @@ final class ReservationRenditionInput
     private function getValueFromBody(array $body): Closure
     {
         return function ($key, $default = null) use ($body) {
-            return $body[$key] ?? $body[$key] ?? $default;
+            return $body[$key] ?? $default;
         };
     }
 }
