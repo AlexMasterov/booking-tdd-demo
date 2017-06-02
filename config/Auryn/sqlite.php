@@ -11,18 +11,16 @@ return function (Injector $injector): void {
         PDO::ATTR_PERSISTENT         => true,
     ];
 
-    $dsn = static function (): string {
-        $database = \getenv('PDO_SQLITE_DATABASE') ?: 'memory';
+    $database = \getenv('SQLITE_DATABASE') ?: 'memory';
 
-        if (strtolower($database) === 'memory') {
-            $database = ":{$database}:";
-        }
+    if (strtolower($database) === 'memory') {
+        $database = ":{$database}:";
+    }
 
-        return "sqlite:{$database}";
-    };
+    $dsn = "sqlite:{$database}";
 
     $injector->define(PDO::class, [
-        ':dsn'     => $dsn(),
+        ':dsn'     => $dsn,
         ':options' => $options,
     ]);
 };

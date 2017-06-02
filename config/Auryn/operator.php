@@ -6,15 +6,14 @@ use Booking\Domain\Operator\LazyOperator;
 use Booking\Domain\Operator\OperatorInterface;
 
 return function (Injector $injector): void {
-    $invoke = [$injector, 'execute'];
     $injector->define(LazyOperator::class, [
-        ':invoke' => $invoke,
+        ':invoke' => [$injector, 'execute'],
     ]);
+
+    $injector->share(OperatorInterface::class);
 
     $injector->alias(
         OperatorInterface::class,
         LazyOperator::class
     );
-
-    $injector->share(OperatorInterface::class);
 };

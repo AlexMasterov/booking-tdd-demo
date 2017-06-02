@@ -5,7 +5,7 @@ use Auryn\Injector;
 
 return function (Injector $injector): void {
     $injector->define(AurynResolver::class, [
-        ':injector' => $injector,
+        'injector' => Injector::class,
     ]);
 
     $injector->share(Injector::class);

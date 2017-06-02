@@ -13,6 +13,6 @@ return function (Injector $injector): void {
     ]);
 
     $injector->define(ReservationController::class, [
-        ':tryReservation' => $injector->make(TryReservation::class),
+        'tryReservation' => TryReservation::class,
     ]);
 };
