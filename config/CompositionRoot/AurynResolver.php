@@ -21,3 +21,7 @@ final class AurynResolver implements ContractorInterface
      */
     private $injector;
 }
+
+$injector = require_once __DIR__ . '/AurynInjector.php';
+
+return new AurynResolver($injector);

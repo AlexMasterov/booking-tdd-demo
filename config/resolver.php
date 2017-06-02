@@ -1,8 +1,6 @@
 <?php
 declare(strict_types=1);
 
-require __DIR__ . '/Auryn/AurynResolver.php';
+$resolver = require __DIR__ . '/CompositionRoot/AurynResolver.php';
 
-$injector = require __DIR__ . '/injector.php';
-
-return new AurynResolver($injector);
+return $resolver;
