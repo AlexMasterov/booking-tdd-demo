@@ -2,8 +2,10 @@
 declare(strict_types=1);
 
 use Auryn\Injector;
-use Booking\Domain\Operator\LazyOperator;
-use Booking\Domain\Operator\OperatorInterface;
+use Booking\Domain\Operator\{
+    LazyOperator,
+    OperatorInterface
+};
 
 return function (Injector $injector): void {
     $injector->define(LazyOperator::class, [

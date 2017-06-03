@@ -3,8 +3,10 @@ declare(strict_types=1);
 
 use Auryn\Injector;
 use Booking\Controller\ReservationController;
-use FastRoute\Dispatcher;
-use FastRoute\RouteCollector;
+use FastRoute\{
+    Dispatcher,
+    RouteCollector
+};
 use function FastRoute\cachedDispatcher;
 
 return function (Injector $injector): void {

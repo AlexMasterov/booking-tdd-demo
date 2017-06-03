@@ -4,9 +4,11 @@ declare(strict_types=1);
 namespace Booking\Domain;
 
 use Booking\Controller\ReservationRendition;
-use Booking\Domain\Reservation;
-use Booking\Domain\ReservationValidatorException;
-use Booking\Domain\Result;
+use Booking\Domain\{
+    Reservation,
+    ReservationValidatorException,
+    Result
+};
 use DateTimeImmutable;
 
 final class ReservationValidator

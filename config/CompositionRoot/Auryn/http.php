@@ -1,12 +1,18 @@
 <?php
 
 use Auryn\Injector;
-use Http\Factory\Diactoros\ResponseFactory;
-use Http\Factory\Diactoros\StreamFactory;
-use Interop\Http\Factory\ResponseFactoryInterface;
-use Interop\Http\Factory\StreamFactoryInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Http\Factory\Diactoros\{
+    ResponseFactory,
+    StreamFactory
+};
+use Interop\Http\Factory\{
+    ResponseFactoryInterface,
+    StreamFactoryInterface
+};
+use Psr\Http\Message\{
+    ResponseInterface,
+    ServerRequestInterface
+};
 use Zend\Diactoros\ServerRequestFactory;
 
 return function (Injector $injector): void {

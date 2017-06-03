@@ -1,14 +1,22 @@
 <?php
 declare(strict_types=1);
 
-use Http\Factory\Diactoros\ResponseFactory;
-use Http\Factory\Diactoros\StreamFactory;
-use Interop\Http\Factory\ResponseFactoryInterface;
-use Interop\Http\Factory\StreamFactoryInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\DependencyInjection\Reference;
+use Http\Factory\Diactoros\{
+    ResponseFactory,
+    StreamFactory
+};
+use Interop\Http\Factory\{
+    ResponseFactoryInterface,
+    StreamFactoryInterface
+};
+use Psr\Http\Message\{
+    ResponseInterface,
+    ServerRequestInterface
+};
+use Symfony\Component\DependencyInjection\{
+    ContainerInterface,
+    Reference
+};
 use Zend\Diactoros\ServerRequestFactory;
 
 return function (ContainerInterface $container): void {

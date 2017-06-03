@@ -5,8 +5,10 @@ namespace Booking\Controller;
 
 use Booking\Controller\ReservationRendition;
 use Booking\Domain\ActionInterface;
-use Booking\Payload;
-use Booking\Payload\CanOk;
+use Booking\{
+    Payload,
+    Payload\CanOk
+};
 
 final class ReservationController
 {

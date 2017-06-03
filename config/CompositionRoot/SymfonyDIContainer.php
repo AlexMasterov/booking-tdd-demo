@@ -1,13 +1,15 @@
 <?php
 declare(strict_types=1);
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
+use Symfony\Component\DependencyInjection\{
+    ContainerBuilder,
+    ParameterBag\ParameterBag,
+};
 
 $rootDir = \dirname(__DIR__, 2);
 
 $parameters = new ParameterBag([
-    'rootDir' => $rootDir,
+    'root_dir' => $rootDir,
 ]);
 
 $container = new ContainerBuilder($parameters);

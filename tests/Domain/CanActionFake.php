@@ -3,10 +3,12 @@ declare(strict_types=1);
 
 namespace Booking\Tests\Domain;
 
-use Booking\Domain\ActionInterface;
-use Booking\Domain\Result;
-use Booking\Domain\Result\Failure;
-use Booking\Domain\Result\Success;
+use Booking\Domain\{
+    ActionInterface,
+    Result,
+    Result\Failure,
+    Result\Success
+};
 use Exception;
 use Throwable;
 

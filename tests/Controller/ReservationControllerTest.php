@@ -3,16 +3,22 @@ declare(strict_types=1);
 
 namespace Booking\Tests\Controller;
 
-use Booking\Controller\ReservationController;
-use Booking\Controller\ReservationRendition;
-use Booking\Domain\Reservation;
-use Booking\Domain\ReservationRendition\TryCapacityCheckException;
-use Booking\Domain\ReservationValidator;
-use Booking\Domain\ReservationValidatorException;
+use Booking\Controller\{
+    ReservationController,
+    ReservationRendition
+};
+use Booking\Domain\{
+  Reservation,
+  ReservationRendition\TryCapacityCheckException,
+  ReservationValidator,
+  ReservationValidatorException
+};
 use Booking\Payload;
 use Booking\Tests\Controller\CanReservationRenditionStub;
-use Booking\Tests\Domain\CanActionFake;
-use Booking\Tests\Domain\CanReservationStub;
+use Booking\Tests\Domain\{
+    CanActionFake,
+    CanReservationStub
+};
 use Exception;
 use PHPUnit\Framework\TestCase;
 

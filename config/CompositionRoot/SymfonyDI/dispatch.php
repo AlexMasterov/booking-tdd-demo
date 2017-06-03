@@ -4,8 +4,10 @@ declare(strict_types=1);
 use FastRoute\Dispatcher;
 use PhpFp\Either\Either;
 use Psr\Http\Message\ServerRequestInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\DependencyInjection\Reference;
+use Symfony\Component\DependencyInjection\{
+    ContainerInterface,
+    Reference
+};
 use function EitherWay\dispatch;
 
 final class EitherWayDispatchFactory

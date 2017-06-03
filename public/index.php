@@ -1,14 +1,20 @@
 <?php
 declare(strict_types=1);
 
-use Booking\Controller\ReservationController;
-use Booking\Controller\ReservationRendition;
-use Booking\Controller\ReservationRenditionInput;
+use Booking\Controller\{
+    ReservationController,
+    ReservationRendition,
+    ReservationRenditionInput
+};
 use Booking\Domain\Operator\OperatorInterface;
-use Booking\Payload;
-use Booking\Responder;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Booking\{
+    Payload,
+    Responder
+};
+use Psr\Http\Message\{
+    ResponseInterface,
+    ServerRequestInterface
+};
 
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../config/env.php';

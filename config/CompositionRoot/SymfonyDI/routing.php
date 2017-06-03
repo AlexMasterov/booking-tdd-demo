@@ -2,8 +2,10 @@
 declare(strict_types=1);
 
 use Booking\Controller\ReservationController;
-use FastRoute\Dispatcher;
-use FastRoute\RouteCollector;
+use FastRoute\{
+    Dispatcher,
+    RouteCollector
+};
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use function FastRoute\cachedDispatcher;
 

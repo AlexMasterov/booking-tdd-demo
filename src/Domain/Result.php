@@ -3,8 +3,10 @@ declare(strict_types=1);
 
 namespace Booking\Domain;
 
-use Booking\Domain\Result\Failure;
-use Booking\Domain\Result\Success;
+use Booking\Domain\Result\{
+    Failure,
+    Success
+};
 
 abstract class Result
 {

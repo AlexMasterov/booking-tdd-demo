@@ -3,15 +3,17 @@ declare(strict_types=1);
 
 namespace Booking\Domain\ReservationRendition;
 
-use Booking\Domain\ActionInterface;
-use Booking\Domain\Operator\CanOperatorInvoke;
-use Booking\Domain\Operator\OperatorInterface;
-use Booking\Domain\Reservation;
-use Booking\Domain\ReservationRendition\TryCapacityCheck;
-use Booking\Domain\ReservationStorage\ReadReservedSeats;
-use Booking\Domain\ReservationStorage\SaveReservation;
-use Booking\Domain\ReservationValidator;
-use Booking\Domain\Result;
+use Booking\Domain\{
+    ActionInterface,
+    Operator\CanOperatorInvoke,
+    Operator\OperatorInterface,
+    Reservation,
+    ReservationRendition\TryCapacityCheck,
+    ReservationStorage\ReadReservedSeats,
+    ReservationStorage\SaveReservation,
+    ReservationValidator,
+    Result
+};
 
 final class TryReservation implements ActionInterface
 {

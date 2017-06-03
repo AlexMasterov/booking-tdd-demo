@@ -2,10 +2,14 @@
 declare(strict_types=1);
 
 use Auryn\Injector;
-use Booking\Domain\ReservationStorage\ReadReservedSeats;
-use Booking\Domain\ReservationStorage\SaveReservation;
-use Booking\Storage\Reservation\PdoReadReservedSeats;
-use Booking\Storage\Reservation\PdoSaveReservation;
+use Booking\Domain\ReservationStorage\{
+    ReadReservedSeats,
+    SaveReservation
+};
+use Booking\Storage\Reservation\{
+    PdoReadReservedSeats,
+    PdoSaveReservation
+};
 
 return function (Injector $injector): void {
     $injector->alias(

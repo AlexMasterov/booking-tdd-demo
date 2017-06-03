@@ -3,10 +3,14 @@ declare(strict_types=1);
 
 namespace Booking\Tests\Domain\ReservationRendition;
 
-use Booking\Domain\ReservationRendition\TryCapacityCheck;
-use Booking\Domain\ReservationRendition\TryCapacityCheckException;
-use Booking\Tests\Domain\CanActionFake;
-use Booking\Tests\Domain\CanReservationStub;
+use Booking\Domain\ReservationRendition\{
+  TryCapacityCheck,
+  TryCapacityCheckException
+};
+use Booking\Tests\Domain\{
+    CanActionFake,
+    CanReservationStub
+};
 use PHPUnit\Framework\TestCase;
 
 class TryCapacityCheckTest extends TestCase

@@ -3,14 +3,18 @@ declare(strict_types=1);
 
 namespace Booking\Tests\Domain\ReservationRendition;
 
-use Booking\Domain\Reservation;
-use Booking\Domain\ReservationRendition\TryCapacityCheck;
-use Booking\Domain\ReservationRendition\TryReservation;
-use Booking\Domain\ReservationStorage\ReadReservedSeats;
-use Booking\Domain\ReservationStorage\SaveReservation;
+use Booking\Domain\{
+    Reservation,
+    ReservationRendition\TryCapacityCheck,
+    ReservationRendition\TryReservation,
+    ReservationStorage\ReadReservedSeats,
+    ReservationStorage\SaveReservation
+};
 use Booking\Tests\Controller\CanReservationRenditionStub;
-use Booking\Tests\Domain\CanActionFake;
-use Booking\Tests\Domain\Operator\CanInvokeFake;
+use Booking\Tests\Domain\{
+    CanActionFake,
+    Operator\CanInvokeFake
+};
 use PHPUnit\Framework\TestCase;
 use Throwable;
 

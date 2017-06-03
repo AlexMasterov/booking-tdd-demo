@@ -3,9 +3,11 @@ declare(strict_types=1);
 
 namespace Booking\Domain\ReservationRendition;
 
-use Booking\Domain\Reservation;
-use Booking\Domain\ReservationRendition\TryCapacityCheckException;
-use Booking\Domain\Result;
+use Booking\Domain\{
+    Reservation,
+    ReservationRendition\TryCapacityCheckException,
+    Result
+};
 
 final class TryCapacityCheck
 {

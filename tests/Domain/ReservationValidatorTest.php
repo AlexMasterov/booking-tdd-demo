@@ -4,9 +4,11 @@ declare(strict_types=1);
 namespace Booking\Tests\Domain;
 
 use Booking\Controller\ReservationRendition;
-use Booking\Domain\Reservation;
-use Booking\Domain\ReservationValidator;
-use Booking\Domain\ReservationValidatorException;
+use Booking\Domain\{
+    Reservation,
+    ReservationValidator,
+    ReservationValidatorException
+};
 use Booking\Tests\Domain\CanActionFake;
 use PHPUnit\Framework\TestCase;
 
