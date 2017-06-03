@@ -1,10 +1,7 @@
 <?php
+declare(strict_types=1);
 
-use Booking\Responder;
-use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 
 $rootDir = \dirname(__DIR__, 2);
@@ -16,6 +13,7 @@ $parameters = new ParameterBag([
 $container = new ContainerBuilder($parameters);
 
 $configs = [
+    require 'SymfonyDI\autowire.php',
     require 'SymfonyDI\reservation.php',
     require 'SymfonyDI\operator.php',
     require 'SymfonyDI\http.php',
@@ -31,7 +29,6 @@ $apply = function ($config) use ($container): void {
 
 \array_map($apply, $configs);
 
-$container->autowire(Responder::class);
 $container->compile();
 
 return $container;

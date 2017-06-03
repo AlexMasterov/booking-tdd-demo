@@ -22,6 +22,6 @@ final class SymfonyDIResolver implements ContractorInterface
     private $container;
 }
 
-$injector = require_once __DIR__ . '/SymfonyDIContainer.php';
+$container = require_once __DIR__ . '/SymfonyDIContainer.php';
 
-return new SymfonyDIResolver($injector);
+return new SymfonyDIResolver($container);
