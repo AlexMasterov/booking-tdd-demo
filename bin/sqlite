@@ -4,18 +4,12 @@
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../config/env.php';
 
-use Auryn\Injector;
+$resolver = require __DIR__ . '/../config/resolver.php';
 
-$injector = new Injector;
+$pdo = ($resolver)(\PDO::class);
 
-// Configure the dependency injection container
-$configureSqlite = require __DIR__ . '/../config/Auryn/sqlite.php';
-$configureSqlite($injector);
-
-$pdo = $injector->make(\PDO::class);
-
-$schema = __DIR__ . '/schema.sql';
-$schema = \file_get_contents($schema);
+$filename = __DIR__ . '/schema.sql';
+$schema = \file_get_contents($filename);
 
 $stmt = $pdo->prepare($schema);
 
