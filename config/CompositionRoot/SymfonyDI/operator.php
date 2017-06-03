@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 use Booking\Domain\Operator\OperatorInterface;
+use Closure;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 final class DumbOperator implements OperatorInterface
