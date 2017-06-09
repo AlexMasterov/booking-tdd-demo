@@ -16,7 +16,7 @@ final class LazyOperator implements OperatorInterface
     public function __invoke(string $spec): Closure
     {
         return function (...$args) use ($spec) {
-            return \call_user_func($this->invoke, $spec, $args);
+            return ($this->invoke)($spec, $args);
         };
     }
 
