@@ -14,13 +14,13 @@ final class DumbOperator implements OperatorInterface
     public function __invoke(string $spec): Closure
     {
         return function (...$args) use ($spec) {
-            $executable = $this->container->get($spec);
+            $object = $this->container->get($spec);
 
-            if (\method_exists($executable, '__invoke')) {
-                return ($executable)(...$args);
+            if (\is_callable($object)) {
+                return $object(...$args);
             }
 
-            return $executable;
+            return $object;
         };
     }
 }
