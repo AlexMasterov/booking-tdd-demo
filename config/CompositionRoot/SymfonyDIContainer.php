@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 use Symfony\Component\DependencyInjection\{
     ContainerBuilder,
-    ParameterBag\ParameterBag,
+    ParameterBag\ParameterBag
 };
 
 $rootDir = \dirname(__DIR__, 2);
